@@ -1,12 +1,15 @@
+import {X} from "lucide-react";
+
+
 const ItemDetails = ({ item, onClose }) => {
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-purple-400/40 via-pink-400/40 to-blue-400/40 flex items-center justify-center z-50 backdrop-blur-sm">
+    <div className="fixed inset-0  min-h-screen bg-gradient-to-br from-purple-400/40 via-pink-400/40 to-blue-400/40 flex items-center justify-center z-50 backdrop-blur-sm">
       <div className="bg-white rounded-3xl shadow-xl w-full max-w-md p-6 relative animate-fade-in">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl font-bold"
         >
-          &times;
+          <X className="w-5 h-5" />
         </button>
 
         <h4 className="text-2xl font-bold text-gray-800 mb-4">Details</h4>
