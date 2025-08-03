@@ -35,7 +35,7 @@ const DashboardPage = () => {
   const can = action => permissions[role]?.includes(action);
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-12">
+    <div className="max-w-3xl mx-auto px-6 py-12 isolate">
       <h1 className="text-3xl font-bold text-blue-700 mb-8 flex">
         Dashboard <span className="text-gray-500 capitalize ml-2">({role})</span>
       </h1>
