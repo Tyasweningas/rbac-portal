@@ -8,19 +8,28 @@ const LoginPage = () => {
   const { setRole } = useRole();
   const [email, setEmail] = useState('');
   const [selectedRole, setSelectedRole] = useState('');
+  const [errors, setErrors] = useState({ email: '', role: '' });
 
   const handleLogin = () => {
-    if (!email) {
-      alert('Please enter your email');
-      return;
+    const newErrors = { email: '', role: '' };
+    let isValid = true;
+
+    if (!email.trim() || !email.includes('@')) {
+      newErrors.email = 'Please enter a valid email (must include "@")';
+      isValid = false;
     }
 
     if (!selectedRole) {
-      alert('Please select a role to login');
-      return;
+      newErrors.role = 'Please select a role';
+      isValid = false;
     }
-    setRole(selectedRole);
-    navigate('/dashboard');
+
+    setErrors(newErrors);
+
+    if (isValid) {
+      setRole(selectedRole);
+      navigate('/dashboard');
+    }
   };
 
   return (
@@ -40,8 +49,11 @@ const LoginPage = () => {
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder="Enter your email"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-300 outline-none"
+            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-sky-300 outline-none ${
+              errors.email ? 'border-red-500' : 'border-gray-300'
+            }`}
           />
+          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
         </div>
 
         <div className="mb-8">
@@ -52,7 +64,9 @@ const LoginPage = () => {
             id="role-select"
             value={selectedRole}
             onChange={e => setSelectedRole(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-300 outline-none"
+            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-sky-300 outline-none ${
+              errors.role ? 'border-red-500' : 'border-gray-300'
+            }`}
           >
             <option value="">-- Choose a role --</option>
             {Object.values(roles).map(role => (
@@ -61,6 +75,7 @@ const LoginPage = () => {
               </option>
             ))}
           </select>
+          {errors.role && <p className="text-red-500 text-sm mt-1">{errors.role}</p>}
         </div>
 
         <button
