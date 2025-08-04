@@ -20,8 +20,8 @@ A simple role-based dashboard built using **React**, **Vite**, **Tailwind CSS**,
 | Role    | Add | Edit | Delete | View |
 |---------|-----|------|--------|------|
 | Admin   | ✅  | ✅   | ✅     | ✅   |
-| Editor  | ✅  | ✅   | ❌     | ✅   |
-| Viewer  | ❌  | ❌   | ❌     | ✅   |
+| Editor  |  ❌ | ✅   |  ✅    | ✅   |
+| Viewer  | ❌  | ❌   |   ❌   | ✅   |
 
 Access rules are enforced via `permissions.js` and React Context (`useRole`).
 
@@ -37,7 +37,6 @@ Access rules are enforced via `permissions.js` and React Context (`useRole`).
 
 ---
 
-```markdown
 # 📦 Main Dependencies
 
 - axios
@@ -51,8 +50,8 @@ Access rules are enforced via `permissions.js` and React Context (`useRole`).
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/Tyasweningas/rbac-portal.git
+cd rbac-portal
 
 # Install dependencies
 npm install
