@@ -19,9 +19,9 @@ A simple role-based dashboard built using **React**, **Vite**, **Tailwind CSS**,
 
 | Role    | Add | Edit | Delete | View |
 |---------|-----|------|--------|------|
-| Admin   | ✅  | ✅   | ✅     | ✅   |
-| Editor  |  ❌ | ✅   |  ✅    | ✅   |
-| Viewer  | ❌  | ❌   |   ❌   | ✅   |
+| Admin   | ✅  | ✅   | ✅    | ✅   |
+| Editor  |  ❌ | ✅   |  ✅   | ✅   |
+| Viewer  | ❌  | ❌   |   ❌  | ✅   |
 
 Access rules are enforced via `permissions.js` and React Context (`useRole`).
 
